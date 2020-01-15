@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+
+  h1 Alle Gewürzeinträge 
+
+  if error
+    p Ein Fehler ist aufgetreten.
+  else
+    p Es wurden insgeamt #[b #[u #{count}]] Einträge gefunden:
+    ul
+     each val, index in name
+      li #[strong Gewürz:] #{name[index]}
+      li #[strong Passt zu:] #{goesWith[index]}
+      li #[strong Zustand:] #{state[index]}
+      li #[strong Status:] #{inStock[index]}
+      hr
+      
+    
+    form(action='/produkte/gewuerze/suche')
+     input.btn.btn-primary.m-2(type='submit', value='Zurück')
