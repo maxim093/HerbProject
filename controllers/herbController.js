@@ -96,3 +96,30 @@ exports.fresh_herb_search = async (req, res) => {
     res.json({ message : err })
   }
 }
+
+
+exports.herb_search = async (req ,res) => {
+
+  try {
+    const herb = await Herb.find({ name : new RegExp(req.params.name)})
+    console.log(herb);
+    res.render('catherbs' , {
+      name: herb.map(x => {
+        return x.name;
+      }),
+      goesWith: herb.map(x => {
+        return x.goesWith;
+      }),
+      state: herb.map(x => {
+        return x.state;
+      }),
+      inStock: herb.map(x => {
+        return x.inStock;
+      })
+    })
+  } catch (err) {
+    res.json({ message : err })
+  }
+}
+
+

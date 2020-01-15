@@ -12,6 +12,8 @@ router.get("/", herb_controller.index);
 // GET request for one Herb.
 router.get("/gewuerze/suche/", herb_controller.herb_detail);
 
+router.get("/gewuerze/suche/:name", herb_controller.herb_search);
+
 // GET request for list of all Herbs.
 router.get("/gewuerze", herb_controller.herb_list);
 
