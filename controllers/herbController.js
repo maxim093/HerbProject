@@ -2,7 +2,7 @@ var Herb = require("../models/herb");
 
 // Home Page
 exports.index = async (req, res) => {
-  res.render("index", { title: "GewürzBuddy" });
+  res.render("index", { title: "GewürzKönig" });
 };
 
 // Display list of all Herbs.
@@ -49,11 +49,10 @@ exports.herb_detail = async (req, res) => {
   }
 };
 
-
-exports.dried_herb_search = async (req ,res) => {
+exports.dried_herb_search = async (req, res) => {
   try {
-    const driedHerbs = await Herb.find({ 'state' : 'getrocknet'});
-    res.render('catHerbs', {
+    const driedHerbs = await Herb.find({ state: "getrocknet" });
+    res.render("catHerbs", {
       name: driedHerbs.map(x => {
         return x.name;
       }),
@@ -66,22 +65,19 @@ exports.dried_herb_search = async (req ,res) => {
       inStock: driedHerbs.map(x => {
         return x.inStock;
       }),
-      thumbnail : driedHerbs.map(x => {
+      thumbnail: driedHerbs.map(x => {
         return x.thumbnail;
       })
     });
-
   } catch (err) {
-    res.json({ message : err})
-
+    res.json({ message: err });
   }
-}
-
+};
 
 exports.fresh_herb_search = async (req, res) => {
   try {
-    const freshHerbs = await Herb.find({ 'state' : 'frisch'});
-    res.render('catherbs' , {
+    const freshHerbs = await Herb.find({ state: "frisch" });
+    res.render("catherbs", {
       name: freshHerbs.map(x => {
         return x.name;
       }),
@@ -94,25 +90,32 @@ exports.fresh_herb_search = async (req, res) => {
       inStock: freshHerbs.map(x => {
         return x.inStock;
       }),
-      thumbnail : freshHerbs.map(x => {
+      thumbnail: freshHerbs.map(x => {
         return x.thumbnail;
       })
-    })
+    });
   } catch (err) {
-    res.json({ message : err })
+    res.json({ message: err });
   }
-}
+};
 
 exports.meat_herbs = async (req, res) => {
-  const searchCategories = [ "Fleisch" , "Lamm" , "Rind" , "Geflügel" , "Schwein" , "Wild"]
+  const searchCategories = [
+    "Fleisch",
+    "Lamm",
+    "Rind",
+    "Geflügel",
+    "Schwein",
+    "Wild"
+  ];
   const regex = [];
-  for(let i = 0; i < searchCategories.length; i++){
+  for (let i = 0; i < searchCategories.length; i++) {
     regex[i] = new RegExp(searchCategories[i]);
   }
 
   try {
-    const meatHerbs = await Herb.find({ "goesWith": regex });
-    res.render('catherbs' , {
+    const meatHerbs = await Herb.find({ goesWith: regex });
+    res.render("catherbs", {
       name: meatHerbs.map(x => {
         return x.name;
       }),
@@ -125,26 +128,25 @@ exports.meat_herbs = async (req, res) => {
       inStock: meatHerbs.map(x => {
         return x.inStock;
       }),
-      thumbnail : meatHerbs.map(x => {
+      thumbnail: meatHerbs.map(x => {
         return x.thumbnail;
       })
-    })
+    });
   } catch (err) {
-    res.json({ message : err })
+    res.json({ message: err });
   }
-}
-
+};
 
 exports.fish_herbs = async (req, res) => {
-  const searchCategories = [ "Fisch"]
+  const searchCategories = ["Fisch"];
   const regex = [];
-  for(let i = 0; i < searchCategories.length; i++){
+  for (let i = 0; i < searchCategories.length; i++) {
     regex[i] = new RegExp(searchCategories[i]);
   }
 
   try {
-    const fishHerbs = await Herb.find({ "goesWith": regex });
-    res.render('catherbs' , {
+    const fishHerbs = await Herb.find({ goesWith: regex });
+    res.render("catherbs", {
       name: fishHerbs.map(x => {
         return x.name;
       }),
@@ -154,29 +156,28 @@ exports.fish_herbs = async (req, res) => {
       state: fishHerbs.map(x => {
         return x.state;
       }),
-      inStock: meatHerbs.map(x => {
+      inStock: fishHerbs.map(x => {
         return x.inStock;
       }),
-      thumbnail : meatHerbs.map(x => {
+      thumbnail: fishHerbs.map(x => {
         return x.thumbnail;
       })
-    })
+    });
   } catch (err) {
-    res.json({ message : err })
+    res.json({ message: err });
   }
-}
-
+};
 
 exports.vegetables_herbs = async (req, res) => {
-  const searchCategories = [ "Gemüse"]
+  const searchCategories = ["Gemüse"];
   const regex = [];
-  for(let i = 0; i < searchCategories.length; i++){
+  for (let i = 0; i < searchCategories.length; i++) {
     regex[i] = new RegExp(searchCategories[i]);
   }
 
   try {
-    const vegetableHerbs = await Herb.find({ "goesWith": regex });
-    res.render('catherbs' , {
+    const vegetableHerbs = await Herb.find({ goesWith: regex });
+    res.render("catherbs", {
       name: vegetableHerbs.map(x => {
         return x.name;
       }),
@@ -186,29 +187,28 @@ exports.vegetables_herbs = async (req, res) => {
       state: vegetableHerbs.map(x => {
         return x.state;
       }),
-      inStock: meatHerbs.map(x => {
+      inStock: vegetableHerbs.map(x => {
         return x.inStock;
       }),
-      thumbnail : meatHerbs.map(x => {
+      thumbnail: vegetableHerbs.map(x => {
         return x.thumbnail;
       })
-    })
+    });
   } catch (err) {
-    res.json({ message : err })
+    res.json({ message: err });
   }
-}
-
+};
 
 exports.fruit_herbs = async (req, res) => {
-  const searchCategories = [ "Obst"]
+  const searchCategories = ["Obst"];
   const regex = [];
-  for(let i = 0; i < searchCategories.length; i++){
+  for (let i = 0; i < searchCategories.length; i++) {
     regex[i] = new RegExp(searchCategories[i]);
   }
 
   try {
-    const fruitHerbs = await Herb.find({ "goesWith": regex });
-    res.render('catherbs' , {
+    const fruitHerbs = await Herb.find({ goesWith: regex });
+    res.render("catherbs", {
       name: fruitHerbs.map(x => {
         return x.name;
       }),
@@ -221,22 +221,20 @@ exports.fruit_herbs = async (req, res) => {
       inStock: fruitHerbs.map(x => {
         return x.inStock;
       }),
-      thumbnail : meatHerbs.map(x => {
+      thumbnail: fruitHerbs.map(x => {
         return x.thumbnail;
       })
-    })
+    });
   } catch (err) {
-    res.json({ message : err })
+    res.json({ message: err });
   }
-}
+};
 
-
-exports.herb_search = async (req ,res) => {
-
+exports.herb_search = async (req, res) => {
   try {
-    const herb = await Herb.find({ name : new RegExp(req.params.name)})
+    const herb = await Herb.find({ name: new RegExp(req.params.name) });
     console.log(herb);
-    res.render('catherbs' , {
+    res.render("catherbs", {
       name: herb.map(x => {
         return x.name;
       }),
@@ -252,10 +250,8 @@ exports.herb_search = async (req ,res) => {
       thumbnail: herb.map(x => {
         return x.thumbnail;
       })
-    })
+    });
   } catch (err) {
-    res.json({ message : err })
+    res.json({ message: err });
   }
-}
-
-
+};

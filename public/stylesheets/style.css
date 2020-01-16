@@ -1,8 +1,9 @@
+.navbar {
+  height: 15vh;
+}
 
-.sidebar-nav {
-  margin-top: 20px;
-  padding: 0;
-  list-style: none;
+.products {
+  height: 5vh;
 }
 
 .cat-card {
