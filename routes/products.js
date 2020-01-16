@@ -14,11 +14,14 @@ router.get("/gewuerze/suche/", herb_controller.herb_detail);
 
 router.get("/gewuerze/suche/:name", herb_controller.herb_search);
 
-// GET request for list of all Herbs.
-router.get("/gewuerze", herb_controller.herb_list);
+// GET request for all herb entries in database.
+router.get("/gewuerze", herb_controller.data_entries);
 
 
 router.get("/gewuerze/getrocknet" , herb_controller.dried_herb_search);
 router.get("/gewuerze/frisch", herb_controller.fresh_herb_search);
-
+router.get("/gewuerze/fleisch", herb_controller.meat_herbs);
+router.get("gewuerze/fisch", herb_controller.fish_herbs);
+router.get("gewuerze/gemuese", herb_controller.vegetable_herbs);
+router.get("gewuerze/obst", herb_controller.fruit.herbs);
 module.exports = router;

@@ -6,23 +6,23 @@ exports.index = async (req, res) => {
 };
 
 // Display list of all Herbs.
-exports.herb_list = async (req, res) => {
+exports.data_entries = async (req, res) => {
   try {
-    const allHerbs = await Herb.find();
+    const allEntries = await Herb.find();
     const herbCount = Herb.count({}, function(err, count) {
       return count;
     });
-    res.render("allHerbs", {
-      name: allHerbs.map(x => {
+    res.render("dbEntries", {
+      name: allEntries.map(x => {
         return x.name;
       }),
-      goesWith: allHerbs.map(x => {
+      goesWith: allEntries.map(x => {
         return x.goesWith;
       }),
-      state: allHerbs.map(x => {
+      state: allEntries.map(x => {
         return x.state;
       }),
-      inStock: allHerbs.map(x => {
+      inStock: allEntries.map(x => {
         return x.inStock;
       }),
       count: await herbCount
@@ -65,6 +65,9 @@ exports.dried_herb_search = async (req ,res) => {
       }),
       inStock: driedHerbs.map(x => {
         return x.inStock;
+      }),
+      thumbnail : driedHerbs.map(x => {
+        return x.thumbnail;
       })
     });
 
@@ -90,6 +93,136 @@ exports.fresh_herb_search = async (req, res) => {
       }),
       inStock: freshHerbs.map(x => {
         return x.inStock;
+      }),
+      thumbnail : freshHerbs.map(x => {
+        return x.thumbnail;
+      })
+    })
+  } catch (err) {
+    res.json({ message : err })
+  }
+}
+
+exports.meat_herbs = async (req, res) => {
+  const searchCategories = [ "Fleisch" , "Lamm" , "Rind" , "Geflügel" , "Schwein" , "Wild"]
+  const regex = [];
+  for(let i = 0; i < searchCategories.length; i++){
+    regex[i] = new RegExp(searchCategories[i]);
+  }
+
+  try {
+    const meatHerbs = await Herb.find({ "goesWith": regex });
+    res.render('catherbs' , {
+      name: meatHerbs.map(x => {
+        return x.name;
+      }),
+      goesWith: meatHerbs.map(x => {
+        return x.goesWith;
+      }),
+      state: meatHerbs.map(x => {
+        return x.state;
+      }),
+      inStock: meatHerbs.map(x => {
+        return x.inStock;
+      }),
+      thumbnail : meatHerbs.map(x => {
+        return x.thumbnail;
+      })
+    })
+  } catch (err) {
+    res.json({ message : err })
+  }
+}
+
+
+exports.fish_herbs = async (req, res) => {
+  const searchCategories = [ "Fisch"]
+  const regex = [];
+  for(let i = 0; i < searchCategories.length; i++){
+    regex[i] = new RegExp(searchCategories[i]);
+  }
+
+  try {
+    const fishHerbs = await Herb.find({ "goesWith": regex });
+    res.render('catherbs' , {
+      name: fishHerbs.map(x => {
+        return x.name;
+      }),
+      goesWith: fishHerbs.map(x => {
+        return x.goesWith;
+      }),
+      state: fishHerbs.map(x => {
+        return x.state;
+      }),
+      inStock: meatHerbs.map(x => {
+        return x.inStock;
+      }),
+      thumbnail : meatHerbs.map(x => {
+        return x.thumbnail;
+      })
+    })
+  } catch (err) {
+    res.json({ message : err })
+  }
+}
+
+
+exports.vegetables_herbs = async (req, res) => {
+  const searchCategories = [ "Gemüse"]
+  const regex = [];
+  for(let i = 0; i < searchCategories.length; i++){
+    regex[i] = new RegExp(searchCategories[i]);
+  }
+
+  try {
+    const vegetableHerbs = await Herb.find({ "goesWith": regex });
+    res.render('catherbs' , {
+      name: vegetableHerbs.map(x => {
+        return x.name;
+      }),
+      goesWith: vegetableHerbs.map(x => {
+        return x.goesWith;
+      }),
+      state: vegetableHerbs.map(x => {
+        return x.state;
+      }),
+      inStock: meatHerbs.map(x => {
+        return x.inStock;
+      }),
+      thumbnail : meatHerbs.map(x => {
+        return x.thumbnail;
+      })
+    })
+  } catch (err) {
+    res.json({ message : err })
+  }
+}
+
+
+exports.fruit_herbs = async (req, res) => {
+  const searchCategories = [ "Obst"]
+  const regex = [];
+  for(let i = 0; i < searchCategories.length; i++){
+    regex[i] = new RegExp(searchCategories[i]);
+  }
+
+  try {
+    const fruitHerbs = await Herb.find({ "goesWith": regex });
+    res.render('catherbs' , {
+      name: fruitHerbs.map(x => {
+        return x.name;
+      }),
+      goesWith: fruitHerbs.map(x => {
+        return x.goesWith;
+      }),
+      state: fruitHerbs.map(x => {
+        return x.state;
+      }),
+      inStock: fruitHerbs.map(x => {
+        return x.inStock;
+      }),
+      thumbnail : meatHerbs.map(x => {
+        return x.thumbnail;
       })
     })
   } catch (err) {
@@ -115,6 +248,9 @@ exports.herb_search = async (req ,res) => {
       }),
       inStock: herb.map(x => {
         return x.inStock;
+      }),
+      thumbnail: herb.map(x => {
+        return x.thumbnail;
       })
     })
   } catch (err) {

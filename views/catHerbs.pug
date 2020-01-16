@@ -1,21 +1,21 @@
 extends layout
 
 block content
-  h1= title
-
-   h1  Gewürze, #{state[0]}
-
+  h1(class="p-3")  Gewürze, #{state[0]}
   if error
     p Ein Fehler ist aufgetreten.
   else
-    p Es wurden insgesamt #[b #[u #{count}]] Einträge gefunden:
-    ul
-     each val, index in name
-      li #[strong Gewürz:] #{name[index]}
-      li #[strong Passt zu:] #{goesWith[index]}
-      li #[strong Zustand:] #{state}
-      li #[strong Status:] #{inStock[index]}
-      hr
+  div(class="container p-4")
+    div(class="row")
+       each val, index in name
+         div(class="col-sm-3 border m-1 text-center p-2")
+          h4(class="pb-1") #{name[index]}
+          img(class="" src= "" + thumbnail[index] width="200" height="150") 
+          p Passt gut zu:  #{goesWith[index]}
+          p Zustand: #{state[index]}
+          p Bestand: #{inStock[index]}
+        
+        
 
     
     form(action='/produkte/gewuerze/suche')
