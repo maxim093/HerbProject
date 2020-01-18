@@ -1,0 +1,29 @@
+extends layout
+
+block content
+ div(class="container p-3 w-50")
+  div(class="row")
+   div(class="col")
+  if message == "Erfolgreich registriert!"
+   p(class="bg-success") #{message}
+   form.p-0.m-0(class="text-center" action='/')
+    input.btn.btn-primary.m-2(class="btn btn-primary" type='submit', value='Jetzt einloggen')
+  else 
+   p(class="bg-danger") #{message} 
+    form(action="/nutzer/registrieren" method="post")
+     div(class="form-group")
+      label(for="exampleInputEmail1") Name:
+      input(type="text" class="form-control" name="name"  placeholder="Name eingeben")
+      
+     div(class="form-group")
+      label(for="exampleInputEmail1") Email Adresse:
+      input(type="email" class="form-control" name="email"  placeholder="E-mail eingeben")
+      small(name="emailHelp" class="form-text text-muted") 
+ 
+     div(class="form-group")
+      label(for="exampleInputPassword1") Passwort:
+      input(type="password" class="form-control" name="password" placeholder="Passwort eingeben")
+  
+
+  
+     button(type="submit" class="btn btn-primary") Registrieren

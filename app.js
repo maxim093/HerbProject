@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/produkte", productsRouter);
-app.use("/user", userRouter);
+app.use("/nutzer", userRouter);
 app.use(bodyParser.json());
 
 // catch 404 and forward to error handler

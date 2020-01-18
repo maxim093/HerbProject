@@ -18,27 +18,41 @@ html(lang='en')
         div(class="col-12 p-0")
           block navbar
                 nav(class='header navbar navbar-expand-lg navbar-light bg-light')
-                 a(class="navbar-brand" href="/produkte/")
+                 a(class="navbar-brand mr-5" href="/produkte/")
                   img(src="/images/logo.png" width="50" height="50" alt="logo" class="mb-3")  
                   span Der Gewürzkönig
-                   i(class="fas fa-user")
+               
+               
 
                  button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent")
                   span(class="navbar-toggler-icon")
+
+                
                  
-                 div(class="collapse navbar-collapse" id="navbarSupportedContent")
-                  form(class="form-inline my-2 my-lg-0 ml-auto" onSubmit="return doSearch()")
-                   input(class="form-control mr-sm-2" type="search" placeholder="Suche" id="searchBtn")
+                 div(class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent")
+                  form(class="form-inline my-2 my-lg-0 " onSubmit="return doSearch()")
+                   input(class="form-control mr-sm-2" type="search" placeholder="Suche" id="searchBtn" size="50" maxlength="50")
                    button(class="btn btn-outline-warning my-2 my-sm-0" type="submit") Suche
+                   
+                 div(class="icon-area d-flex")
+                 a(class="nav-link" href='/nutzer/wunschliste') 
+                   i(class="fas fa-heart")
+                 a(class="nav-link" href='/nutzer/warenkorb') 
+                   i(class="fas fa-shopping-cart")
+                 a(class="nav-link" href='/nutzer/registrieren') 
+                   i(class="fas fa-user")
+                 
+                  
+                   
         div(class="col-12 p-0")
-               nav(class="navbar navbar-expand-md navbar-dark bg-dark products")
+               nav(class="navbar navbar-expand-md bg-dark products")
                 ul(class="navbar-nav mr-auto") 
                  li(class="nav-item")
-                  a(class="nav-link  text-white" href='/produkte/gewuerze/suche') Gewürze & Kräuter
+                  a(class="products-item nav-link  text-white" href='/produkte/gewuerze/suche') Gewürze & Kräuter
                  li(Class="nav-item")
-                  a(class="nav-link text-white" href='/produkte/gewuerze') Alle Datenbankeintäge
+                  a(class="products-item nav-link text-white" href='/produkte/gewuerze') Alle Datenbankeintäge
                  li(class="nav-item")
-                  a(class="nav-link text-white" href='/produkte/gewürz/anlegen') Gewürz anlegen
+                  a(class="products-item nav-link text-white" href='/produkte/gewürz/anlegen') Gewürz anlegen
         div(class="col-12 p-0")
          block content
            
