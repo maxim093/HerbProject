@@ -1,9 +1,9 @@
-.navbar {
-  height: 15vh;
+.header {
+  min-height: 15vh;
 }
 
 .products {
-  height: 5vh;
+  min-height: 5vh;
 }
 
 .cat-card {

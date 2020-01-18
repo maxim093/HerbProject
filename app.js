@@ -6,7 +6,10 @@ var logger = require("morgan");
 const bodyParser = require("body-parser");
 
 var indexRouter = require("./routes/index");
-var productsRouter = require("./routes/products"); //Import routes for "catalog" area of site
+//Import routes for "catalog" area of site
+var productsRouter = require("./routes/products");
+// User Auth routes
+var userRouter = require("./routes/userAuth");
 
 var app = express();
 
@@ -28,7 +31,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/produkte", productsRouter); // Add catalog routes to middleware chain.
+app.use("/produkte", productsRouter);
+app.use("/user", userRouter);
 app.use(bodyParser.json());
 
 // catch 404 and forward to error handler

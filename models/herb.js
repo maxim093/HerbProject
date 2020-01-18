@@ -1,8 +1,8 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var HerbSchema = new Schema({
+const HerbSchema = new Schema({
   name: { type: String, required: true, max: 100 },
   goesWith: { type: String, required: false, max: 300 },
   state: { type: String, required: true, max: 20 },
@@ -14,7 +14,7 @@ var HerbSchema = new Schema({
   },
   thumbnail: {
     type: String,
-    required : true
+    required: true
   }
 });
 
