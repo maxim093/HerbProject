@@ -10,7 +10,7 @@ block content
        each val, index in name
          div(class="col-sm-3 border m-1 text-center p-2")
           h4(class="pb-1") #{name[index]}
-          img(class="" src= "" + thumbnail[index] width="200" height="150") 
+          img(class="img-fluid" src= "" + thumbnail[index] width="auto" height="150") 
           p Passt gut zu:  #{goesWith[index]}
           p Zustand: #{state[index]}
           p Bestand: #{inStock[index]}

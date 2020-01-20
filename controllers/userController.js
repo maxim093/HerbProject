@@ -24,3 +24,8 @@ exports.register = async (req, res, next) => {
 exports.registerForm = async (req, res) => {
   res.render("login-form");
 };
+
+
+exports.login = async (req, res) => {
+  res.render("login");
+};

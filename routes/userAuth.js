@@ -10,4 +10,6 @@ router.post("/registrieren", user_controller.register);
 
 router.get("/registrieren", user_controller.registerForm);
 
+router.get("/login", user_controller.login);
+
 module.exports = router;

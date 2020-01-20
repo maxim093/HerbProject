@@ -11,7 +11,7 @@ html(lang='en')
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='/searchScript.js')
     script(src="https://kit.fontawesome.com/3182f213ea.js" crossorigin="anonymous")
-
+    
   body
     div(class="container-fluid")
       div(class="row")
@@ -41,8 +41,8 @@ html(lang='en')
                    i(class="fas fa-shopping-cart")
                  a(class="nav-link" href='/nutzer/registrieren') 
                    i(class="fas fa-user")
-                 
-                  
+                 button(type="submit" onclick="location.href = 'http://localhost:3000/nutzer/login';" data-toggle="modal" id="test") Login
+                
                    
         div(class="col-12 p-0")
                nav(class="navbar navbar-expand-md bg-dark products")
@@ -55,4 +55,6 @@ html(lang='en')
                   a(class="products-item nav-link text-white" href='/produkte/gewürz/anlegen') Gewürz anlegen
         div(class="col-12 p-0")
          block content
+           
+          
            
