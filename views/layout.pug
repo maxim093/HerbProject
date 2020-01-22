@@ -21,29 +21,24 @@ html(lang='en')
                  a(class="navbar-brand mr-5" href="/produkte/")
                   img(src="/images/logo.png" width="50" height="50" alt="logo" class="mb-3")  
                   span Der Gewürzkönig
-               
-               
+  
 
-                 button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent")
-                  span(class="navbar-toggler-icon")
-
-                
-                 
                  div(class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent")
                   form(class="form-inline my-2 my-lg-0 " onSubmit="return doSearch()")
                    input(class="form-control mr-sm-2" type="search" placeholder="Suche" id="searchBtn" size="50" maxlength="50")
                    button(class="btn btn-outline-warning my-2 my-sm-0" type="submit") Suche
                    
-                 div(class="icon-area d-flex")
-                 a(class="nav-link" href='/nutzer/wunschliste') 
-                   i(class="fas fa-heart")
-                 a(class="nav-link" href='/nutzer/warenkorb') 
-                   i(class="fas fa-shopping-cart")
-                 a(class="nav-link" href='/nutzer/registrieren') 
-                   i(class="fas fa-user")
-                 button(type="submit" onclick="location.href = 'http://localhost:3000/nutzer/login';" data-toggle="modal" id="test") Login
-                
-                   
+                 div(class="icon-area")
+                  a(class="m-2 icon" href='/nutzer/wunschliste') 
+                    i(class="fas fa-heart")
+                  a(class="m-2 icon" href='/nutzer/warenkorb') 
+                    i(class="fas fa-shopping-cart")
+                  a(class="m-2 icon" href='/nutzer/registrieren') 
+                    i(class="fas fa-user")
+                  button( class="btn btn-primary m-2" data-toggle="modal" data-target="#loginModal") 
+                   i(class="fas fa-sign-in-alt")
+                  button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent")
+                   span(class="navbar-toggler-icon")   
         div(class="col-12 p-0")
                nav(class="navbar navbar-expand-md bg-dark products")
                 ul(class="navbar-nav mr-auto") 
@@ -55,6 +50,23 @@ html(lang='en')
                   a(class="products-item nav-link text-white" href='/produkte/gewürz/anlegen') Gewürz anlegen
         div(class="col-12 p-0")
          block content
-           
-          
-           
+
+         block login
+          div(class="modal fade" id="loginModal",tabindex="-1",role="dialog",aria-labelledby=id+"Label" aria-hidden="true")
+            div(class="modal-dialog")
+              div(class="modal-content")
+                div(class="modal-header")
+                  h4(class="modal-title") Einloggen
+                div(class="modal-body")
+                 form
+                  div(class="form-group")
+                    label(for="email" class="col-form-label") Email:
+                    input(type="email" class="form-control" id="email")
+                  
+                  div(class="form-group")
+                    label(for="password" class="col-form-label") Passwort:
+                    input(type="password" class="form-control" id="password")
+              
+                div(class="modal-footer")
+                  button(type="button" class="btn btn-primary") Einloggen
+                  button(class="btn btn-secondary" type="button" data-dismiss="modal") Zurück
