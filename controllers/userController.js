@@ -10,22 +10,22 @@ exports.register = async (req, res, next) => {
 
   try {
     const savedUser = await user.save();
-    res.render("login-form", {
+    res.render("registration-form", {
       message: "Erfolgreich registriert!",
       name: "",
       email: "",
       password: ""
     });
   } catch (err) {
-    res.render("login-form", { message: "Email-bereits vorhanden" });
+    res.render("registration-form", { message: "Email-bereits vorhanden" });
   }
 };
 
 exports.registerForm = async (req, res) => {
-  res.render("login-form");
+  res.render("registration-form");
 };
 
 
 exports.login = async (req, res) => {
-  res.render("login");
+  res.send("login..");
 };

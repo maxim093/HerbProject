@@ -31,14 +31,14 @@ exports.data_entries = async (req, res) => {
     res.json({ message: err });
   }
 };
-// Display detail page for a specific Herb.
+// Display index page for HerbSearch 
 exports.herb_detail = async (req, res) => {
   try {
     const allHerbs = await Herb.find();
     const herbCount = Herb.count({}, function(err, count) {
       return count;
     });
-    res.render("specificHerbs", {
+    res.render("herbsIndex", {
       state: allHerbs.map(x => {
         return x.state;
       }),
