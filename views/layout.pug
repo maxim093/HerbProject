@@ -58,15 +58,15 @@ html(lang='en')
                 div(class="modal-header")
                   h4(class="modal-title") Einloggen
                 div(class="modal-body")
-                 form
+                 form(method="POST" action='/nutzer/login')
                   div(class="form-group")
                     label(for="email" class="col-form-label") Email:
-                    input(type="email" class="form-control" id="email")
+                    input(type="email" class="form-control" id="email" name="email")
                   
                   div(class="form-group")
                     label(for="password" class="col-form-label") Passwort:
-                    input(type="password" class="form-control" id="password")
+                    input(type="password" class="form-control" id="password" name="password")
               
-                div(class="modal-footer")
-                  button(type="button" class="btn btn-primary") Einloggen
-                  button(class="btn btn-secondary" type="button" data-dismiss="modal") Zurück
+                  div(class="modal-footer")
+                    input(class="btn btn-primary" type="submit" value="Submit")
+                    button(class="btn btn-secondary" type="button" data-dismiss="modal") Zurück

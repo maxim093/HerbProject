@@ -31,7 +31,7 @@ exports.data_entries = async (req, res) => {
     res.json({ message: err });
   }
 };
-// Display index page for HerbSearch 
+// Display index page for HerbSearch
 exports.herb_detail = async (req, res) => {
   try {
     const allHerbs = await Herb.find();

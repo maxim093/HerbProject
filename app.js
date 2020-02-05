@@ -4,6 +4,9 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const indexRouter = require("./routes/index");
 //Import routes for "catalog" area of site
@@ -30,9 +33,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use("/nutzer", userRouter);
 app.use("/", indexRouter);
 app.use("/produkte", productsRouter);
-app.use("/nutzer", userRouter);
 app.use(bodyParser.json());
 
 // catch 404 and forward to error handler
