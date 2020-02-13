@@ -68,6 +68,18 @@ body {
   color: #fff !important;
 }
 
+.btn-main-2 {
+  color: #fff !important;
+  background-color: #f0ad4e;
+  transition: 0.3s;
+}
+
+.btn-main-2:hover {
+  background-color: #343a40;
+  border-color: #f0ad4e;
+  color: #fff !important;
+}
+
 .search-input {
   max-width: 20rem;
 }
