@@ -1,36 +1,35 @@
 extends layout
 
 block content
- div(class="container-fluid p-3")
+ div(class="container-fluid p-3  text-center m-auto")
    div(class="row")
-     div(class="col-12")
-        h1(class="") Gewürze
-        p(class="pl-3 pt-0 mt-0") hier können sie Gewürze nach gewünschter Zutat oder Zustand suchen.
+     div(class="col-12 p-0")
+
 
         if error
           p Ein Fehler ist aufgetreten.
         else
-          div(class='container-fluid p-3')
-            h3(class="pb-1") Nach Zustand
-            div(class='row p-2')
-              div(class='col-md-5 border p-5 m-1 cat-card' style='background-image : url(/images/driedHerbs.jpg);')
+          div(class='container-fluid pt-5 pb-5')
+            h2(class="pb-1 pt-1 display-4") Gewürze nach Zustand
+            div(class='row pt-5 pb-5')
+              div(class='col-md-6 border p-5 cat-card' style='background-image : url(/images/driedHerbs.jpg);')
                 a(class="link text-white display-4 " href="/produkte/gewuerze/getrocknet")
                   p Getrocknet
-              div(class='col-md-5 border p-5 m-1 cat-card' style='background-image : url(/images/freshHerb.jpg);')
+              div(class='col-md-6 border p-5 cat-card' style='background-image : url(/images/freshHerb.jpg);')
                 a(class="link text-white display-4" href="/produkte/gewuerze/frisch")
                   p Frisch
-            h3(class="pb-1 pt-1") Nach Zutat
-            div(class='row p-2')
-              div(class='col-md-5 border p-5 m-1 cat-card' style='background-image : url(/images/meat2.jpg);')
+            h2(class="pb-1 pt-1 display-4") Gewürze nach Zutat
+            div(class='row pt-5 pb-5')
+              div(class='col-md-6 border p-5 cat-card' style='background-image : url(/images/meat2.jpg);')
                a(class="link text-white display-4" href="/produkte/gewuerze/fleisch" )
                 p Zu Fleisch
-              div(class='col-md-5 border p-5 m-1 cat-card' style='background-image : url(/images/fish2.jpg);')
+              div(class='col-md-6 border p-5 cat-card' style='background-image : url(/images/fish2.jpg);')
                a(class="link text-white display-4" href="/produkte/gewuerze/fisch" )
                 p zu Fisch 
-              div(class='col-md-5 border p-5 m-1 cat-card'  style='background-image : url(/images/vegetables.jpg);')
+              div(class='col-md-6 border p-5 cat-card'  style='background-image : url(/images/vegetables.jpg);')
                a(class="link text-white display-4" href="/produkte/gewuerze/gemuese")
                 p zu Gemüse 
-              div(class='col-md-5 border p-5 m-1 cat-card' style='background-image : url(/images/fruits.jpg);')
+              div(class='col-md-6 border p-5 cat-card' style='background-image : url(/images/fruits.jpg);')
                a(class="link text-white display-4" href="/produkte/gewuerze/obst" )
                 p zu Obst 
               
