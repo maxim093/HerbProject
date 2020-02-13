@@ -45,8 +45,18 @@ function createHerbs(cb) {
     [
       function(callback) {
         herbCreate(
-          "Dill",
-          "Fisch, Salate, Gemüse ",
+          "Bärlauch",
+          "Salat, Soßen, Fleisch ",
+          "getrocknet",
+          "Ausverkauft",
+          false,
+          callback
+        );
+      },
+      function(callback) {
+        herbCreate(
+          "Lorbeerblätter",
+          "Zum Einlegen, für Eintöpfe, Suppen, Fleisch ",
           "getrocknet",
           "Bestellbar",
           false,
@@ -55,18 +65,8 @@ function createHerbs(cb) {
       },
       function(callback) {
         herbCreate(
-          "Thymian",
-          "Lamm, Geflügel, Rind, Fisch, Gemüse ",
-          "getrocknet",
-          "Bestellbar",
-          false,
-          callback
-        );
-      },
-      function(callback) {
-        herbCreate(
-          "Oregano",
-          "Suppen, Salate, Antipasti, Fisch und Muscheln, Fleisch und Gemüse- oder Reisgerichte ",
+          "Majoran",
+          "Suppen, Pizza, Kartoffelgerichte ",
           "frisch",
           "Bestellbar",
           false,
@@ -75,10 +75,10 @@ function createHerbs(cb) {
       },
       function(callback) {
         herbCreate(
-          "Basilikum",
-          "Tomatensalat, Eier- und Nudelgerichten, Gemüse, Fisch, Lamm, Geflügel und Kalb ",
+          "Petersilie",
+          "Eintopf, Suppen, Kartoffeln, Fleisch, Fisch",
           "frisch",
-          "Bestellbar",
+          "Ausverkauft",
           false,
           callback
         );

@@ -43,6 +43,10 @@ body {
   color: #f0ad4e;
 }
 
+.orange-bg {
+  background-color: #f0ad4e;
+}
+
 .logo {
   font-size: 36px;
 }
@@ -66,6 +70,9 @@ body {
 
 .search-input {
   max-width: 20rem;
+}
+
+.card-footer {
 }
 
 @media (max-width: 570px) {

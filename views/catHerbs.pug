@@ -1,19 +1,30 @@
 extends layout
 
 block content
-  h1(class="p-3")  Gewürze, #{state[0]}
+ if(name == "")   
+  h1(class="display-4 text-center pt-5") Leider nichts gefunden :-(
   if error
     p Ein Fehler ist aufgetreten.
   else
-  div(class="container p-4")
+ else 
+  div(class="container-fluid p-4")
     div(class="row")
        each val, index in name
-         div(class=" col-sm-5 col-lg-3 border m-1 text-center p-2")
-          h4(class="pb-1") #{name[index]}
-          img(class="img-fluid" src= "" + thumbnail[index] width="150" height="150") 
-          p Passt gut zu:  #{goesWith[index]}
-          p Zustand: #{state[index]}
-          p Bestand: #{inStock[index]}
+        div(class="col-md-6")
+         div(class="card flex-md-row mb-4 shadow-sm h-md-250")
+            div(class="card-body d-flex flex-column align-items-start")
+               strong(class="d-inline-block mb-2 orange-bg pr-2 pl-2") #{name[index]}
+               div(class="mb-1 text-muted small") Zustand: #{state[index]}
+               div(class="mb-1 text-muted small") Aktueller Bestand: #{inStock[index]}
+               p(class="card-text mb-auto") Passt gut zu #{goesWith[index]}
+               form(action='#')
+                input(class="btn btn-sm btn-outline-success m-1" type='submit', value='In Warenkorb')
+                input(class="btn btn-sm btn-main" type='submit', value='Auf Wunschliste')
+            div
+            img(class="card-img-right flex-auto d-none d-lg-block img-fluid" src= "" + thumbnail[index] width="200" height="250") 
+            div
+             
+           
         
         
 

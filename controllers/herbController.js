@@ -233,7 +233,6 @@ exports.fruit_herbs = async (req, res) => {
 exports.herb_search = async (req, res) => {
   try {
     const herb = await Herb.find({ name: new RegExp(req.params.name) });
-    console.log(herb);
     res.render("catherbs", {
       name: herb.map(x => {
         return x.name;
