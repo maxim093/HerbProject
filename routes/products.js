@@ -23,4 +23,6 @@ router.get("/gewuerze/fleisch", herb_controller.meat_herbs);
 router.get("/gewuerze/fisch", herb_controller.fish_herbs);
 router.get("/gewuerze/gemuese", herb_controller.vegetables_herbs);
 router.get("/gewuerze/obst", herb_controller.fruit_herbs);
+router.get("/gewuerze/anlegen", herb_controller.create_herbs_form);
+router.post("/gewuerze/anlegen", herb_controller.create_herbs);
 module.exports = router;

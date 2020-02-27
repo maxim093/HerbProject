@@ -232,7 +232,9 @@ exports.fruit_herbs = async (req, res) => {
 
 exports.herb_search = async (req, res) => {
   try {
-    const herb = await Herb.find({ name: new RegExp(req.params.name) });
+    const herb = await Herb.find({
+      name: new RegExp(req.params.name, "i")
+    });
     res.render("catherbs", {
       name: herb.map(x => {
         return x.name;
@@ -252,5 +254,26 @@ exports.herb_search = async (req, res) => {
     });
   } catch (err) {
     res.json({ message: err });
+  }
+};
+
+exports.create_herbs_form = (req, res) => {
+  res.render("createHerbs");
+};
+
+exports.create_herbs = async (req, res) => {
+  try {
+    const herb = new Herb({
+      name: req.body.name,
+      thumbnail: req.body.thumbnail,
+      state: req.body.state,
+      goesWith: req.body.description,
+      inStock: req.body.inStock
+    });
+    console.log(herb);
+    await herb.save();
+    res.render("createHerbs", { message: "Erfolgreich gespeichert!" });
+  } catch (err) {
+    res.render("createherbs", { message: err });
   }
 };

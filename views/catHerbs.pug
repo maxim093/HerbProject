@@ -17,12 +17,13 @@ block content
                div(class="mb-1 text-muted small") Zustand: #{state[index]}
                div(class="mb-1 text-muted small") Aktueller Bestand: #{inStock[index]}
                p(class="card-text mb-auto") Passt gut zu #{goesWith[index]}
-               p(class="text-muted") Menge: 200g
+               p(class="text-muted") Menge: 
+                b(class="text-dark") 200g
                form(action='#')
                 input(class="btn btn-sm btn-outline-success m-1" type='submit', value='In Warenkorb')
                 input(class="btn btn-sm btn-main" type='submit', value='Auf Wunschliste')
             div
-            img(class="card-img-right flex-auto d-none d-lg-block" src= "" + thumbnail[index] width="200" height="200") 
+            img(class="card-img-right flex-auto d-none d-block" src= "" + thumbnail[index] width="200" height="200") 
             div
              
            
